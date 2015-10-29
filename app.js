@@ -1,84 +1,54 @@
+
   $(document).ready(function(){
-    var options = {
-      name: "charles",
-      speed: 5,
-      score: 0,
-    };
-    var charles = new Character(options);
-    var computer = new Character(options);
-    computer.name = "computer";
-    $('button').on('click',function(){
-        charles.hit(computer);
-        $('#comp-score').html(computer.score);
-        $('#my-score').html(charles.score);
-    });
+    main.ballAnimation();
+  });
 
-    $('#button-one').on('click',function(){
-      $('.left-ball').removeClass('display-block');
-        $('.left-ball').addClass('display-none');
-        $('.right-ball').removeClass("display-none");
-        $('.right-ball').addClass("display-block");
-    });
-    $('#button-two').on('click',function(){
-        $('.left-ball').removeClass('display-none');
-        $('.left-ball').addClass('display-block');
-        $('.right-ball').removeClass('display-block');
-        $('.right-ball').addClass('display-none');
+var ball = new Ball(100,50);
 
-    });
-    //set winnning screen settings, css
+function Ball(x,y){
+  this.x = x;
+  this.y = y;
+  this.x_speed = 3;
+  this.y_speed = 4;
+}
 
-});
 var main = {
-  leftCourt:function(){
-    $('#left-ball').css("dislay","block");
-    $('#right-ball').css("display","none");
+  init:function(){
+
   },
-  rightCourt:function(){
-    $('#right-ball').css("display","block");
-    $('#left-ball').css("display","none");
+  styling:function(){
+
   },
+  ballAnimation:function(){
+    $( "#ball" ).animate({
+      left: (ball.x= ball.x + ball.x_speed),
+      top: ball.y= ball.y + ball.y_speed,
+  }, 5, function() {
+    main.Increment();
+    console.log(ball.y);
+    main.ballAnimation();
+  });
+  },
+    Increment:function(){
+
+      if(ball.y<0 && ball.x <0){
+        ball.y_speed = -ball.y_speed;
+        ball.x_speed = -ball.x_speed;
+      }else if(ball.y<0 && ball.x>0 ){
+        ball.y_speed = -ball.y_speed;
+      }
+      else if (ball.y>0 && ball.x<0) {
+        ball.x_speed = -ball.x_speed;
+      }
+      else if(ball.x>500 && ball.y<500){
+        ball.x_speed = -ball.x_speed;
+      }
+      else if (ball.y>500 && ball.x<500) {
+        ball.y_speed = -ball.y_speed;
+      }
+
+
+    },
+
 
 };
-
-function Character(options){
-  this.name = options.name || "John Doe";
-  this.speed = options.speed || 5;
-  this.score = options.score;
-  this.hit = function(enemy){
-      var randomInt = Math.floor(Math.random() * 10);
-      if(randomInt >=0 && randomInt<=3){
-        this.score = this.score + 1;
-        console.log("You Scored");
-      }
-      else if(randomInt > 3 && randomInt <=6){
-        enemy.score = enemy.score + 1;
-        console.log("Computer Scored");
-      }
-      else{
-        console.log("great volley");
-
-      }
-      if(this.score  >= 5){
-        console.log("this is working");
-        $('.youWin p').css({"display":"block"});
-        $('.container').css({"display":"none"});
-        $('button').css({"display":"none"});
-        $('span').css ({"display": "none"});
-      }
-      if(enemy.score  >= 5){
-        console.log("this is working");
-        $('.compWin p').css({"display":"block"});
-        $('.container').css({"display":"none"});
-        $('button').css({"display":"none"});
-        $('span').css ({"display": "none"});
-      }
-
-      if(this.score == 5)console.log("you win");
-      else if(enemy.score == 5)console.log("computer wins");
-      else{
-      console.log("Your score is:" + this.score + "computer score is:"+ enemy.score);
-    }
-  };
-
-}
