@@ -7,13 +7,34 @@
     <link rel="stylesheet" href="sheet.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
+    <span class="score" id = "your-score">Your Score</span>
+    <span class="score" id = "computer-score">Computer's Score</span>
     <div class="container">
       <img id = "ball" src="http://www.clker.com/cliparts/9/0/f/5/1194986802274589086football_ball_brice_boye_01.svg.med.png" alt="" />
-      <div id = "left-paddle">left-paddle</div>
-      <div id = "right-paddle">right-paddle</div>
-    </div>
+      <div id="left-goal">Left</div>
+      <div id="right-goal">Right</div>
+
+      <!-- right side  of table-->
+          <!-- computerplayer  -->
+      <div class="first-row-players computer-players">
+        <img id = "one-d" src="http://s7d2.scene7.com/is/image/BilliardFactory/tor-foos-men-yellow?$Main%20Image$" alt="" />
+        <img id = "two-d" src="http://s7d2.scene7.com/is/image/BilliardFactory/tor-foos-men-yellow?$Main%20Image$" alt="" />
+        <img id = "three-d" src="http://s7d2.scene7.com/is/image/BilliardFactory/tor-foos-men-yellow?$Main%20Image$" alt="" />
+        <img id = "four-d" src="http://s7d2.scene7.com/is/image/BilliardFactory/tor-foos-men-yellow?$Main%20Image$" alt="" />
+      </div>
+          <!-- your player -->
+      <div class="second-row-players your-player">
+            <img src="http://s7d2.scene7.com/is/image/BilliardFactory/tor-foos-men-yellow?$Main%20Image$" alt="" />
+            <img src="http://s7d2.scene7.com/is/image/BilliardFactory/tor-foos-men-yellow?$Main%20Image$" alt="" />
+      </div>
+
+      </div>
+
+      <span id = "play-button" class="glyphicon glyphicon-play"></span>
     <script src="bower_components/underscore/underscore.js" charset="utf-8"></script>
     <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
+    <script src="players.js" charset="utf-8"></script>
+    <script src="main.js" charset="utf-8"></script>
     <script src="app.js" charset="utf-8"></script>
   </body>
 </html>

@@ -1,19 +1,53 @@
+body, html, .container {
+  overflow: hidden; }
+
+.score {
+  width: 15%;
+  height: 50px;
+  font-size: 3em;
+  position: absolute; }
+
+#your-score {
+  left: 20%; }
+
+#computer-score {
+  left: 50%; }
+
 .container {
   position: absolute;
   width: 1000;
   height: 500px;
   background-color: green;
   z-index: 0;
-  margin: 5%; }
-  .container div {
-    position: absolute;
-    width: 40px;
-    height: 200px;
-    background-color: red;
-    z-index: 1; }
+  margin: 5%;
+  margin-top: 10%; }
 
-.container img {
+#ball {
   left: 0;
   top: 0;
   position: absolute;
   width: 40px; }
+
+.first-row-players {
+  width: 20px;
+  margin: auto;
+  position: absolute;
+  left: 200px; }
+  .first-row-players img {
+    width: 30px;
+    margin-bottom: 75px; }
+
+.second-row-players {
+  width: 20px;
+  height: 100%;
+  top: 150px;
+  position: absolute;
+  left: 650px; }
+  .second-row-players img {
+    width: 30px;
+    margin-bottom: 150px; }
+
+#play-button {
+  font-size: 3em;
+  margin-top: 30%;
+  margin-left: 45%; }
